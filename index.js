@@ -5,7 +5,7 @@ function importStyles() {
 
   // Import stylesheets
   if (foo) {
-    import('./mobile.css');
+    import('./mobile.css').then(console.log);
   } else {
     import('./desktop.css');
   }
