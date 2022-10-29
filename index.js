@@ -1,13 +1,22 @@
-const importStyles = () => {
+let foo = false;
+
+function importStyles() {
+  console.log('running', foo);
+
   // Import stylesheets
-  const foo = false;
   if (foo) {
-    require('./mobile.css');
+    import('./mobile.css');
   } else {
-    require('./desktop.css');
+    import('./desktop.css');
   }
-};
+}
 
 // Write Javascript code!
 const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1 onclick="importStyles">JS Starter</h1>`;
+appDiv.innerHTML = `<h1 id="header">JS Starter</h1>`;
+
+document.getElementById('header').addEventListener('click', () => {
+  foo = !foo;
+
+  importStyles();
+});
